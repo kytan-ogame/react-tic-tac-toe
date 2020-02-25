@@ -1,26 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+import {ThemeProvider} from '@material-ui/styles';
+import Main from "./components/Main";
+import {Provider} from "react-redux";
+import theme from './theme';
+import store from "./store";
+import css from './app.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+			<Provider store={store}>
+				<ThemeProvider theme={theme}>
+					<Main></Main>
+				</ThemeProvider>
+			</Provider>
+
+	);
 }
 
 export default App;
